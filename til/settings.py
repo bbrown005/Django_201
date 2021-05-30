@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'feed',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount'
+    'allauth.socialaccount',
+    'profiles',
 
 ]
 
