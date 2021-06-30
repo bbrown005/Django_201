@@ -31,6 +31,7 @@ $.ajaxSetup({
 $(document).on("click", ".js-toggle-modal", function(e) {
     e.preventDefault()
     $(".js-modal").toggleClass("hidden")
+    console.log("Javascript has seen this")
 })
 .on("click", ".js-submit", function(e) {
     e.preventDefault()
@@ -63,5 +64,32 @@ $(document).on("click", ".js-toggle-modal", function(e) {
             $btn.prop("disabled", false).text("Error");
         }
 
-    })
-});
+    });
+})
+.on("click", ".js-follow", function(e) {
+    e.preventDefault();
+    const action = $(this).attr("data-action")
+
+    $.ajax({
+        type: 'POST',
+        url: $(this).data("url"),
+        data: {
+            action: action,
+            username: $(this).data("username"),
+        },
+        success: (data) => {
+            $(".js-follow-text").text(data.wording)
+            if(action == "follow"){
+                // Change wording to unfollow
+                $(this).attr("data-action", "unfollow")
+            } else {
+                // The opposite
+                $(this).attr("data-action", "follow")
+            }
+        },
+        error: (error) => {
+            console.warn(error)
+        }
+
+    });
+})
