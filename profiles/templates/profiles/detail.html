@@ -40,14 +40,15 @@
             {% endif %}
         </div>
         <div class="flex justify-center pb-3 text-white">
-        <div class="text-center mr-3 border-r pr-3">
-            <h2>{{ total_posts }}</h2>
-            <span>Posts</span>
+            <div class="text-center mr-3 border-r pr-3">
+                <h2>{{ total_posts }}</h2>
+                <span>Posts</span>
+            </div>
+            <div class="text-center">
+                <h2> {{ total_followers }}</h2>
+                <span>Followers</span>
+            </div>
         </div>
-        <div class="text-center">
-            <h2> {{ total_followers }}</h2>
-            <span>Followers</span>
-        </div>
-        </div>
+        {# TODO: Add functionality for showing profiles posts #}
     </div>
 {% endblock body%}

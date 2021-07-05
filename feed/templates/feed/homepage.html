@@ -8,4 +8,5 @@
     {% for post in posts %}
             {% include "includes/post.html" with post=post show_detail_link=True %}
     {% endfor %}
+    {% include "includes/modal.html" %}
 {% endblock %}
